@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { apiBaseUrl } from './api';
 import './App.css';
 import NewTodoForm from './components/NewTodoForm';
 import TodoList from './components/TodoList';
@@ -7,7 +8,7 @@ function App() {
   const [todos, setTodos] = useState([])
 
   useEffect(() => {
-    fetch("http://localhost:9000/todos/all")
+    fetch(apiBaseUrl + "/todos/all")
     .then((response) => response.json())
     .then(todosArray => setTodos(todosArray))
   }, []) // leeres Array = nur 1 mal ausführen, wenn componeten mounted

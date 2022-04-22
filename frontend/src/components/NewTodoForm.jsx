@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { apiBaseUrl } from "../api";
 
 const NewTodoForm = (props) => {
     const [newTodoTitle, setNewTodoTitle] = useState("")
@@ -7,7 +8,7 @@ const NewTodoForm = (props) => {
     const addNewTodo = (event) => {
         event.preventDefault() // reload onSubmit verhindern
 
-        fetch("http://localhost:9000/todos/new", {
+        fetch(apiBaseUrl + "/todos/new", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

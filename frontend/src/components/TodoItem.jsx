@@ -1,6 +1,8 @@
+import { apiBaseUrl } from "../api"
+
 const TodoItem = (props) => {
     const updateTodoCompleted = () => {
-        fetch("http://localhost:9000/todos/updateStatus", {
+        fetch(apiBaseUrl + "/todos/updateStatus", {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -11,7 +13,7 @@ const TodoItem = (props) => {
     }
 
     const deleteTodo = () => {
-        fetch("http://localhost:9000/todos/delete/" + props.todo._id, {
+        fetch(apiBaseUrl + "/todos/delete/" + props.todo._id, {
             method: "DELETE",
         })
         .then(response => response.json())
